@@ -4,6 +4,7 @@ public class DigitalVideoDisc {
     private String director;
     private int length;
     private double cost;
+
     public DigitalVideoDisc (String title, String category, String director, int length, double cost) {
         this.title = title;
         this.category = category;
@@ -11,6 +12,19 @@ public class DigitalVideoDisc {
         this.length = length;
         this.cost = cost;
     }
+
+    public DigitalVideoDisc (String title) {
+        this.title = title;
+    }
+
+    public DigitalVideoDisc (String title, String category, double cost) {
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
+    //Java allow us to create several constructors
+    //I think we can overload Constructor DigitalVideoDisc. Just need to declare an object suitable with the constructor we build
+    //Other constructors can be built similarly
 
     public String getTitle() {
         return this.title;
@@ -34,6 +48,10 @@ public class DigitalVideoDisc {
 
     //Just for testing
     public void getInfo () {
-        System.out.println("Name: " + this.title);
+        System.out.print("Name: " + this.title);
+        System.out.print(" - Category: " + this.category);
+        System.out.print(" - Director: " + this.director);
+        System.out.print(" - Length: " + this.length);
+        System.out.println(" - Cost: " + this.cost);
     }
 }
