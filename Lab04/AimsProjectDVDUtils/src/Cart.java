@@ -1,5 +1,4 @@
 import java.util.Vector;
-import java.util.Collection;
 public class Cart {
     public static final int MAX = 20;
     Vector <DigitalVideoDisc> cart = new Vector<DigitalVideoDisc>(MAX);
@@ -37,21 +36,5 @@ public class Cart {
             cost += cart.get(i).getCost();
         }
         System.out.println("Total cost: " + cost);
-    }
-
-    public void sortInCartByCost () {
-        
-    }
-
-    public void sortInCartByTittle () {
-
-    }
-
-    public void searchInCart () {
-
-    }
-
-    public void printCart () {
-
     }
 }

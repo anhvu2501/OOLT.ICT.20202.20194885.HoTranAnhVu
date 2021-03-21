@@ -1,17 +1,17 @@
 public class DVDUtils {
-    public void compareByCost () {
+    public static void compareByCost () {
 
     }
 
-    public void compareByTittle () {
+    public static void compareByTittle () {
 
     }
 
-    public void sortByCost () {
+    public static void sortByCost () {
 
     }
 
-    public void sortByTittle () {
+    public static void sortByTittle () {
 
     }
 }
