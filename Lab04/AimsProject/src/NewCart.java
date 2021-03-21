@@ -1,47 +1,35 @@
-import java.util.Vector;
-import java.util.Collections;
-
-public class Cart {
+public class NewCart {
+    //Array implement
     public static final int MAX = 20;
-    private static Vector <DigitalVideoDisc> cart = new Vector<>(MAX);
+    public int qtyOrdered;
+    DigitalVideoDisc [] cart = new DigitalVideoDisc[MAX];
+
     public void addDigitalVideoDisc (DigitalVideoDisc disc) {
-        if (cart.size() < MAX) {
-            cart.add(disc);
+        if (qtyOrdered < MAX) {
+            cart[qtyOrdered] = new DigitalVideoDisc(disc);
+            qtyOrdered ++;
             System.out.println("The disc has been added");
         }
-        else
+        else {
             System.out.println("The cart is full");
+        }
     }
 
     public void displayCart () {
         System.out.println("DVDs in cart: ");
-        for (DigitalVideoDisc disc : cart) {
-            disc.getInfo();
-        }
+        for (int i = 0; i < qtyOrdered; i++)
+            cart[i].getInfo();
     }
-
-    //Remove by name
-    public void removeDigitalDisc (DigitalVideoDisc disc) {
-        for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).getTitle().compareTo(disc.getTitle()) == 0) {
-                cart.remove(i);
-                System.out.println("Remove successfully");
-            }
-        }
-    }
-
-    //Remove by other elements is kind of similar.
 
     public void totalCost () {
         double cost = 0;
-        for (DigitalVideoDisc disc : cart) {
-            cost += disc.getCost();
+        for (int i = 0; i < qtyOrdered; i++) {
+            cost += cart[i].getCost();
         }
         System.out.println("Total cost: " + cost);
     }
 
-    //The result is not as expected
-    public void swap (DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
+    public static void swap (DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
         DigitalVideoDisc tmp = new DigitalVideoDisc(disc1);
 
         disc1.setTitle(disc2.getTitle());
@@ -57,29 +45,29 @@ public class Cart {
         disc2.setCost(tmp.getCost());
     }
 
+
     //Ascending
-    public void sortInCartByCost () {
-        for (int i = 0; i < cart.size() - 1; i ++) {
+    public void sortInCartByCost (DigitalVideoDisc [] cart) {
+        for (int i = 0; i < qtyOrdered - 1; i ++) {
             int min_idx = i;
-            for (int j = i + 1; j < cart.size(); j ++) {
-                if (cart.get(i).getCost() < cart.get(min_idx).getCost())
+            for (int j = i + 1; j < qtyOrdered; j ++) {
+                if (cart[i].getCost() < cart[min_idx].getCost())
                     min_idx = j;
                 //Method swap
-                swap(cart.get(i), cart.get(min_idx));
+                swap(cart[i], cart[min_idx]);
             }
         }
 
     }
 
-    //Descending
-    public void sortInCartByTittle () {
-        for (int i = 0; i < cart.size() - 1; i ++) {
+    public void sortInCartByTitle () {
+        for (int i = 0; i < cart.length - 1; i ++) {
             int min_idx = i;
-            for (int j = i + 1; j < cart.size(); j ++) {
-                if (cart.get(i).getTitle().compareTo(cart.get(min_idx).getTitle()) > 0)
+            for (int j = i + 1; j < cart.length; j ++) {
+                if (cart[i].getTitle().compareTo(cart[min_idx].getTitle()) > 0)
                     min_idx = j;
                 //Method swap
-                swap(cart.get(i), cart.get(min_idx));
+                swap(cart[i], cart[min_idx]);
             }
         }
 

@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class DigitalVideoDisc {
     private String title;
     private String category;
@@ -5,12 +7,31 @@ public class DigitalVideoDisc {
     private int length;
     private double cost;
 
+    //Problem 4
+    private static int nbDigitalVideoDisc = 0;
+    private LocalDate dateAdded;
+    private int id;
+
+    public String getDetail () {
+        return "DVD - " + title + " - " + category + " - " + director + " - " + length + " - " + cost;
+    }
+
+    public LocalDate getDateAdded () {
+        return dateAdded;
+    }
+
+    public int getId () {
+        return id;
+    }
+
     public DigitalVideoDisc (DigitalVideoDisc dvd) {
         this.title = dvd.getTitle();
         this.category = dvd.getCategory();
         this.director = dvd.getDirector();
         this.length = dvd.getLength();
         this.cost = dvd.getCost();
+        id += nbDigitalVideoDisc;
+        LocalDate dateAdded = LocalDate.now();
     }
 
     public DigitalVideoDisc (String title, String category, String director, int length, double cost) {
@@ -19,16 +40,22 @@ public class DigitalVideoDisc {
         this.director = director;
         this.length = length;
         this.cost = cost;
+        id += nbDigitalVideoDisc;
+        LocalDate dateAdded = LocalDate.now();
     }
 
     public DigitalVideoDisc (String title) {
         this.title = title;
+        id += nbDigitalVideoDisc;
+        LocalDate dateAdded = LocalDate.now();
     }
 
     public DigitalVideoDisc (String title, String category, double cost) {
         this.title = title;
         this.category = category;
         this.cost = cost;
+        id += nbDigitalVideoDisc;
+        LocalDate dateAdded = LocalDate.now();
     }
     //Java allow us to create several constructors
     //I think we can overload Constructor DigitalVideoDisc. Just need to declare an object suitable with the constructor we build

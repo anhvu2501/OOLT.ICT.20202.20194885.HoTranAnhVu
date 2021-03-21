@@ -1,9 +1,36 @@
+import java.time.LocalDate;
+
 public class DigitalVideoDisc {
     private String title;
     private String category;
     private String director;
     private int length;
     private double cost;
+
+    private static int nbDigitalVideoDisc = 0;
+    private LocalDate dateAdded;
+    private int id;
+
+    public String getDetail () {
+        return "DVD - " + title + " - " + category + " - " + director + " - " + length + " - " + cost;
+    }
+
+    public LocalDate getDateAdded () {
+        return this.dateAdded;
+    }
+
+    public int getId () {
+        return this.id;
+    }
+
+    public DigitalVideoDisc (DigitalVideoDisc dvd) {
+        this.title = dvd.getTitle();
+        this.category = dvd.getCategory();
+        this.director = dvd.getDirector();
+        this.length = dvd.getLength();
+        this.cost = dvd.getCost();
+
+    }
 
     public DigitalVideoDisc (String title, String category, String director, int length, double cost) {
         this.title = title;
@@ -48,10 +75,31 @@ public class DigitalVideoDisc {
 
     //Just for testing
     public void getInfo () {
-        System.out.print("Name: " + this.title);
+        System.out.print(" Name: " + this.title);
         System.out.print(" - Category: " + this.category);
         System.out.print(" - Director: " + this.director);
         System.out.print(" - Length: " + this.length);
         System.out.println(" - Cost: " + this.cost);
     }
+
+    public void setTitle (String title) {
+        this.title = title;
+    }
+
+    public void setCategory (String category) {
+        this.category = category;
+    }
+
+    public void setDirector (String director) {
+        this.director = director;
+    }
+
+    public void setLength (int length) {
+        this.length = length;
+    }
+
+    public void setCost (Double cost) {
+        this.cost = cost;
+    }
+
 }
