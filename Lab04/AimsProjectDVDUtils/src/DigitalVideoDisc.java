@@ -7,7 +7,7 @@ public class DigitalVideoDisc {
     private int length;
     private double cost;
 
-    //Problem 4
+    //Problem 4 here
     private static int nbDigitalVideoDisc = 0;
     private LocalDate dateAdded;
     private int id;
