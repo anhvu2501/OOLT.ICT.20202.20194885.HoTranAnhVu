@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.Vector;
 import java.util.Collections;
 
@@ -59,29 +60,23 @@ public class Cart {
 
     //Ascending
     public void sortInCartByCost () {
-        for (int i = 0; i < cart.size() - 1; i ++) {
-            int min_idx = i;
-            for (int j = i + 1; j < cart.size(); j ++) {
-                if (cart.get(i).getCost() < cart.get(min_idx).getCost())
-                    min_idx = j;
-                //Method swap
-                swap(cart.get(i), cart.get(min_idx));
+        Collections.sort(cart, new Comparator<DigitalVideoDisc>() {
+            @Override
+            public int compare(DigitalVideoDisc o1, DigitalVideoDisc o2) {
+                return Double.valueOf(o1.getCost()).compareTo(o2.getCost());
             }
-        }
+        });
 
     }
 
-    //Descending
+    //Ascending by title
     public void sortInCartByTittle () {
-        for (int i = 0; i < cart.size() - 1; i ++) {
-            int min_idx = i;
-            for (int j = i + 1; j < cart.size(); j ++) {
-                if (cart.get(i).getTitle().compareTo(cart.get(min_idx).getTitle()) > 0)
-                    min_idx = j;
-                //Method swap
-                swap(cart.get(i), cart.get(min_idx));
+        Collections.sort(cart, new Comparator<DigitalVideoDisc>() {
+            @Override
+            public int compare(DigitalVideoDisc o1, DigitalVideoDisc o2) {
+                return String.valueOf(o1.getTitle()).compareTo(o2.getTitle());
             }
-        }
+        });
 
     }
 

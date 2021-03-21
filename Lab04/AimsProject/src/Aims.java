@@ -47,13 +47,13 @@ public class Aims {
 //        anOrder.totalCost();
 
         //Another Version
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 19.2);
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc("The Lion King", "Animation", "Roger Allers", 87, 24.5);
         anOrder.addDigitalVideoDisc(dvd1);
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 24.95);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Star Wars", "Science Fiction", "George Lucas", 87, 19.3);
         anOrder.addDigitalVideoDisc(dvd2);
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", "Tom", 100, 26.3);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin", "Animation", "Tom", 100, 18.2);
         anOrder.addDigitalVideoDisc(dvd3);
-        DigitalVideoDisc dvd4 = new DigitalVideoDisc("Soul", "Animation", "James", 110, 35.1);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("Soul", "Animation", "James", 110, 16.1);
         anOrder.addDigitalVideoDisc(dvd4);
         anOrder.displayCart();
         System.out.println("Sort by cost ascendingly: ");
