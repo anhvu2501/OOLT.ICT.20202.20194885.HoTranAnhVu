@@ -8,6 +8,13 @@ public class Book extends Media{
     public Book (int id, String title, String category, String director, double cost) {
         super(id, title, category, director, cost);
     }
+
+    @Override
+    public void getInfor () {
+        System.out.print("Book: ");
+        super.getInfor();
+    }
+
     public void addAuthor (String authorName) {
         for (int i = 0; i < authors.size(); i++) {
             if (authorName.compareTo(authors.get(i)) == 0) {

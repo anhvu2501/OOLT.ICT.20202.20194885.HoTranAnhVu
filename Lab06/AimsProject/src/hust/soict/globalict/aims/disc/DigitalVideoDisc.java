@@ -18,4 +18,9 @@ public class DigitalVideoDisc extends Media{
         super(id, title, category, director, cost);
     }
 
+    @Override
+    public void getInfor () {
+        System.out.print("DVD: ");
+        super.getInfor();
+    }
 }

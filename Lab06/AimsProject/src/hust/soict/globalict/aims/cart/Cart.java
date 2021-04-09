@@ -29,9 +29,15 @@ public class Cart {
 //    }
 //
     public void displayCart () {
-        System.out.println("DVDs in cart: ");
+        System.out.println("In cart: ");
         for (Media media : cart) {
-            media.getInfor();
+            if (media instanceof Book) {
+                media.getInfor();
+            }
+            else if (media instanceof DigitalVideoDisc)
+                media.getInfor();
+            else
+                media.getInfor();
         }
     }
 //
