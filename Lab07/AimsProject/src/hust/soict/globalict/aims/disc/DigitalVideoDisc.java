@@ -1,12 +1,14 @@
 package hust.soict.globalict.aims.disc;
 
+import hust.soict.globalict.aims.Playable;
+import hust.soict.globalict.aims.media.Disc;
 import hust.soict.globalict.aims.media.Media;
 
 import java.time.LocalDate;
 import java.util.StringTokenizer;
 import hust.soict.globalict.aims.media.Media;
 
-public class DigitalVideoDisc extends Media{
+public class DigitalVideoDisc extends Disc implements Playable {
     private static int nbDigitalVideoDisc = 0;
     private LocalDate dateAdded;
 
@@ -14,13 +16,12 @@ public class DigitalVideoDisc extends Media{
         return this.dateAdded;
     }
 
-    public DigitalVideoDisc (int id, String title, String category, String director, double cost) {
-        super(id, title, category, director, cost);
+    public DigitalVideoDisc (int id, String title, String category, double cost, int length, String director) {
+        super (id, title, category, cost, length, director);
     }
 
-    @Override
-    public void getInfor () {
-        System.out.print("DVD: ");
-        super.getInfor();
+    public void play() {
+        System.out.println("Playing DVD: " + this.getTitle());
+        System.out.println("DVD length: " + this.getLength());
     }
 }

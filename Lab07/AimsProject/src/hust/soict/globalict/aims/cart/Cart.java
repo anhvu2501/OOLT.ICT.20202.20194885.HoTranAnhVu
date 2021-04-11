@@ -10,49 +10,43 @@ import hust.soict.globalict.aims.media.*;
 public class Cart {
     public static final int MAX = 20;
     private static Vector <Media> cart = new Vector<>(MAX);
-    public void addMedia (Media media) {
+    public void addMedia (Disc disc) {
         if (cart.size() < MAX) {
-            cart.add(media);
+            cart.add(disc);
             System.out.println("The disc has been added");
         }
         else
             System.out.println("The cart is full");
     }
-//    private static Vector <DigitalVideoDisc> cart = new Vector<>(MAX);
-//    public void addDigitalVideoDisc (DigitalVideoDisc disc) {
-//        if (cart.size() < MAX) {
-//            cart.add(disc);
-//            System.out.println("The disc has been added");
-//        }
-//        else
-//            System.out.println("The cart is full");
-//    }
-//
+////    private static Vector <DigitalVideoDisc> cart = new Vector<>(MAX);
+////    public void addDigitalVideoDisc (DigitalVideoDisc disc) {
+////        if (cart.size() < MAX) {
+////            cart.add(disc);
+////            System.out.println("The disc has been added");
+////        }
+////        else
+////            System.out.println("The cart is full");
+////    }
+////
     public void displayCart () {
         System.out.println("In cart: ");
         for (Media media : cart) {
-            if (media instanceof Book) {
-                media.getInfor();
-            }
-            else if (media instanceof DigitalVideoDisc)
-                media.getInfor();
-            else
                 media.getInfor();
         }
     }
-//
-//    //Remove by name
-    public void removeMedia (Media media) {
+////
+////    //Remove by name
+    public void removeMedia (int id) {
         for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).getTitle().compareTo(media.getTitle()) == 0) {
+            if (cart.get(i).getId() == id) {
                 cart.remove(i);
                 System.out.println("Remove successfully");
             }
         }
     }
-//
-//    //Remove by other elements is kind of similar.
-//
+////
+////    //Remove by other elements is kind of similar.
+////
     public void totalCost () {
         double cost = 0;
         for (Media media : cart) {
@@ -102,8 +96,8 @@ public class Cart {
         });
 
     }
-//
-    //Ascending by title
+////
+//    //Ascending by title
     public void sortInCartByTittle () {
         Collections.sort(cart, new Comparator<Media>() {
             @Override
@@ -113,7 +107,7 @@ public class Cart {
         });
 
     }
-//
+////
     public void searchInCartById (int id) {
         for (Media media : cart) {
             if (id == media.getId()) {
@@ -125,7 +119,7 @@ public class Cart {
             }
         }
     }
-//
+////
     public void searchInCartByTitle (String title) {
         for (Media media : cart) {
             if (title.compareTo(media.getTitle()) == 0) {
