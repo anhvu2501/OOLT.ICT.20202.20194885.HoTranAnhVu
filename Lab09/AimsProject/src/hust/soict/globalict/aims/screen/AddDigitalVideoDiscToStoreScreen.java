@@ -1,7 +1,6 @@
 package hust.soict.globalict.aims.screen;
 
 import hust.soict.globalict.aims.disc.DigitalVideoDisc;
-import org.w3c.dom.Text;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,9 +46,9 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 
         JPanel container = new JPanel();
         container.setLayout(new FlowLayout(FlowLayout.CENTER));
-
         JButton createDVD = new JButton("Add DVD");
         createDVD.addActionListener(btnListener);
+        createDVD.setAlignmentY(CENTER_ALIGNMENT);
         container.add(createDVD);
         cp.add(container);
         setTitle("Add Digital Video Disc");
@@ -71,15 +70,9 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
 
                 DigitalVideoDisc dvd = new DigitalVideoDisc(id, title, category, cost, length, director);
                 StoreScreen.store.addMedia(dvd);
-                String noti = "Add DVD: " + dvd.getTitle() + "successfully";
-                JOptionPane.showMessageDialog(null, "Add DVD successfully");
                 setVisible(false);
                 new StoreScreen(StoreScreen.store);
             }
         }
-    }
-
-    public static void main(String[] args) {
-        new AddDigitalVideoDiscToStoreScreen();
     }
 }

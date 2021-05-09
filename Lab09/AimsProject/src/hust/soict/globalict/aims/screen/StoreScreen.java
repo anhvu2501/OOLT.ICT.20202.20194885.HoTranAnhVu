@@ -26,6 +26,7 @@ public class StoreScreen extends JFrame {
     JMenuBar createMenuBar() {
         ButtonListener btnListener = new ButtonListener();
         JMenu menu = new JMenu("Options");
+        menu.setFont(new Font(menu.getFont().getName(), Font.PLAIN, 50));
         JMenu smUpdateStore = new JMenu("Update Store");
         JMenuItem addBook = new JMenuItem("Add Book");
         smUpdateStore.add(addBook);
@@ -33,11 +34,11 @@ public class StoreScreen extends JFrame {
 
         JMenuItem addCd = new JMenuItem("Add CD");
         smUpdateStore.add(addCd);
-        addBook.addActionListener(btnListener);
+        addCd.addActionListener(btnListener);
 
         JMenuItem addDVD = new JMenuItem("Add DVD");
         smUpdateStore.add(addDVD);
-        addBook.addActionListener(btnListener);
+        addDVD.addActionListener(btnListener);
 
         menu.add(smUpdateStore);
         menu.add(new JMenuItem("View Store"));
@@ -61,6 +62,7 @@ public class StoreScreen extends JFrame {
         JButton cart = new JButton("View Cart");
         cart.setPreferredSize(new Dimension(100, 50));
         cart.setMaximumSize(new Dimension(100, 50));
+        cart.addActionListener(btnListener);
 
         header.add(Box.createRigidArea(new Dimension(10, 10)));
         header.add(title);
@@ -116,29 +118,29 @@ public class StoreScreen extends JFrame {
     }
 
 
-    public static void main(String[] args) {
-        Store store = new Store();
-        DigitalVideoDisc dvd1 = new DigitalVideoDisc(1, "Soul", "Animation", 3.6, 120, "Tom");
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc(2, "Lion King", "Animation", 3.6, 120, "Tom");
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc(3, "Peter Pan", "Animation", 3.6, 120, "Tom");
-        DigitalVideoDisc dvd4 = new DigitalVideoDisc(3, "Aladin", "Animation", 3.6, 120, "Tom");
-        DigitalVideoDisc dvd5 = new DigitalVideoDisc(3, "Harry Potter", "Animation", 3.6, 120, "Tom");
-        DigitalVideoDisc dvd6 = new DigitalVideoDisc(3, "Love, Rosie", "Romantic", 3.6, 120, "Tom");
-        DigitalVideoDisc dvd7 = new DigitalVideoDisc(3, "Iron man", "Scientific", 3.6, 120, "Tom");
-        DigitalVideoDisc dvd8 = new DigitalVideoDisc(3, "Captain America", "Scientific", 3.6, 120, "Tom");
-        DigitalVideoDisc dvd9 = new DigitalVideoDisc(3, "Thor", "Scientific", 3.6, 120, "Tom");
-        store.addMedia(dvd1);
-        store.addMedia(dvd2);
-        store.addMedia(dvd3);
-        store.addMedia(dvd4);
-        store.addMedia(dvd5);
-        store.addMedia(dvd6);
-        store.addMedia(dvd7);
-        store.addMedia(dvd8);
-        store.addMedia(dvd9);
-        store.getItemsInStore().stream()
-                .forEach(System.out::println);
-        new StoreScreen(store);
-    }
+//    public static void main(String[] args) {
+//        Store store = new Store();
+//        DigitalVideoDisc dvd1 = new DigitalVideoDisc(1, "Soul", "Animation", 3.6, 120, "Tom");
+//        DigitalVideoDisc dvd2 = new DigitalVideoDisc(2, "Lion King", "Animation", 3.6, 120, "Tom");
+//        DigitalVideoDisc dvd3 = new DigitalVideoDisc(3, "Peter Pan", "Animation", 3.6, 120, "Tom");
+//        DigitalVideoDisc dvd4 = new DigitalVideoDisc(3, "Aladin", "Animation", 3.6, 120, "Tom");
+//        DigitalVideoDisc dvd5 = new DigitalVideoDisc(3, "Harry Potter", "Animation", 3.6, 120, "Tom");
+//        DigitalVideoDisc dvd6 = new DigitalVideoDisc(3, "Love, Rosie", "Romantic", 3.6, 120, "Tom");
+//        DigitalVideoDisc dvd7 = new DigitalVideoDisc(3, "Iron man", "Scientific", 3.6, 120, "Tom");
+//        DigitalVideoDisc dvd8 = new DigitalVideoDisc(3, "Captain America", "Scientific", 3.6, 120, "Tom");
+//        DigitalVideoDisc dvd9 = new DigitalVideoDisc(3, "Thor", "Scientific", 3.6, 120, "Tom");
+//        store.addMedia(dvd1);
+//        store.addMedia(dvd2);
+//        store.addMedia(dvd3);
+//        store.addMedia(dvd4);
+//        store.addMedia(dvd5);
+//        store.addMedia(dvd6);
+//        store.addMedia(dvd7);
+//        store.addMedia(dvd8);
+//        store.addMedia(dvd9);
+//        store.getItemsInStore().stream()
+//                .forEach(System.out::println);
+//        new StoreScreen(store);
+//    }
 
 }
