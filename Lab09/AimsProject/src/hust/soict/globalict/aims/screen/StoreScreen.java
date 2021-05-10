@@ -102,9 +102,7 @@ public class StoreScreen extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             String button = e.getActionCommand();
-            if (button.equals("View Cart")) {
-                setVisible(false);
-            } else if (button.equals("Add DVD")) {
+            if (button.equals("Add DVD")) {
                 setVisible(false);
                 new AddDigitalVideoDiscToStoreScreen();
             } else if (button.equals("Add Book")) {
@@ -118,29 +116,29 @@ public class StoreScreen extends JFrame {
     }
 
 
-//    public static void main(String[] args) {
-//        Store store = new Store();
-//        DigitalVideoDisc dvd1 = new DigitalVideoDisc(1, "Soul", "Animation", 3.6, 120, "Tom");
-//        DigitalVideoDisc dvd2 = new DigitalVideoDisc(2, "Lion King", "Animation", 3.6, 120, "Tom");
-//        DigitalVideoDisc dvd3 = new DigitalVideoDisc(3, "Peter Pan", "Animation", 3.6, 120, "Tom");
-//        DigitalVideoDisc dvd4 = new DigitalVideoDisc(3, "Aladin", "Animation", 3.6, 120, "Tom");
-//        DigitalVideoDisc dvd5 = new DigitalVideoDisc(3, "Harry Potter", "Animation", 3.6, 120, "Tom");
-//        DigitalVideoDisc dvd6 = new DigitalVideoDisc(3, "Love, Rosie", "Romantic", 3.6, 120, "Tom");
-//        DigitalVideoDisc dvd7 = new DigitalVideoDisc(3, "Iron man", "Scientific", 3.6, 120, "Tom");
-//        DigitalVideoDisc dvd8 = new DigitalVideoDisc(3, "Captain America", "Scientific", 3.6, 120, "Tom");
-//        DigitalVideoDisc dvd9 = new DigitalVideoDisc(3, "Thor", "Scientific", 3.6, 120, "Tom");
-//        store.addMedia(dvd1);
-//        store.addMedia(dvd2);
-//        store.addMedia(dvd3);
-//        store.addMedia(dvd4);
-//        store.addMedia(dvd5);
-//        store.addMedia(dvd6);
-//        store.addMedia(dvd7);
-//        store.addMedia(dvd8);
-//        store.addMedia(dvd9);
-//        store.getItemsInStore().stream()
-//                .forEach(System.out::println);
-//        new StoreScreen(store);
-//    }
+    public static void main(String[] args) {
+        Store store = new Store();
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc(1, "Soul", "Animation", 3.6, 120, "Tom");
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc(2, "Lion King", "Animation", 3.6, 120, "Tom");
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc(3, "Peter Pan", "Animation", 3.6, 120, "Tom");
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc(3, "Aladin", "Animation", 3.6, 120, "Tom");
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc(3, "Harry Potter", "Animation", 3.6, 120, "Tom");
+        DigitalVideoDisc dvd6 = new DigitalVideoDisc(3, "Love, Rosie", "Romantic", 3.6, 120, "Tom");
+        DigitalVideoDisc dvd7 = new DigitalVideoDisc(3, "Iron man", "Scientific", 3.6, 120, "Tom");
+        DigitalVideoDisc dvd8 = new DigitalVideoDisc(3, "Captain America", "Scientific", 3.6, 120, "Tom");
+        DigitalVideoDisc dvd9 = new DigitalVideoDisc(3, "Thor", "Scientific", 3.6, 120, "Tom");
+        store.addMedia(dvd1);
+        store.addMedia(dvd2);
+        store.addMedia(dvd3);
+        store.addMedia(dvd4);
+        store.addMedia(dvd5);
+        store.addMedia(dvd6);
+        store.addMedia(dvd7);
+        store.addMedia(dvd8);
+        store.addMedia(dvd9);
+        store.getItemsInStore().stream()
+                .forEach(System.out::println);
+        new StoreScreen(store);
+    }
 
 }

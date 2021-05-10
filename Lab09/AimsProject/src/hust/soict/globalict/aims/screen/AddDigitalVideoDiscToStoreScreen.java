@@ -50,6 +50,7 @@ public class AddDigitalVideoDiscToStoreScreen extends JFrame {
         createDVD.addActionListener(btnListener);
         createDVD.setAlignmentY(CENTER_ALIGNMENT);
         container.add(createDVD);
+        
         cp.add(container);
         setTitle("Add Digital Video Disc");
         setSize(800, 400);
