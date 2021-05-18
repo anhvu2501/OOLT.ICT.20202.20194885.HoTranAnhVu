@@ -1,14 +1,17 @@
 package hust.soict.globalict.aims.media;
 
+import hust.soict.globalict.aims.Playable;
+
 import java.util.Vector;
 
-public class CompactDisc extends Disc{
+public class CompactDisc extends Disc implements Playable {
     private String artist;
     private Vector <Track> tracks = new Vector<>();
 
-    public CompactDisc (int id, String title, String category, double cost, String artist) {
+    public CompactDisc (int id, String title, String category, double cost, String artist, Vector <Track> tracks) {
         super (id, title, category, cost);
         this.artist = artist;
+        this.tracks = tracks;
     }
 
     public String getArtist() {
@@ -45,5 +48,17 @@ public class CompactDisc extends Disc{
             totalLength += t.getLength();
         }
         System.out.println("The length of the CD is: " + totalLength);
+    }
+
+    public void play () {
+        System.out.println("CD ID: " + getId());
+        System.out.println("CD title: " + getTitle());
+        System.out.println("CD category: " + getCategory());
+        System.out.println("CD artist: " + getArtist());
+        System.out.println("CD cost " + getCost());
+        for (int i = 0; i < tracks.size(); i++) {
+            System.out.println("Track title: " + tracks.get(i).getTitle());
+            System.out.println("Track length: " + tracks.get(i).getLength());
+        }
     }
 }

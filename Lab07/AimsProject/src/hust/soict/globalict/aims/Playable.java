@@ -1,4 +1,6 @@
 package hust.soict.globalict.aims;
 
-public class Playable {
+public interface Playable {
+    public void play ();
+
 }
