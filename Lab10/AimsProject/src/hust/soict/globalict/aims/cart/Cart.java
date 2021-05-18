@@ -1,19 +1,18 @@
 package hust.soict.globalict.aims.cart;
 
 import hust.soict.globalict.aims.media.Media;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
 
 public class Cart {
     public static final int MAX = 20;
-    private static List<Media> cart = new ArrayList<Media>(MAX);
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList();
 
     public void addMedia(Media media) {
-        if (cart.size() < MAX) {
-            cart.add(media);
+        if (itemsOrdered.size() < MAX) {
+            itemsOrdered.add(media);
             System.out.println("The disc has been added");
         } else
             System.out.println("The cart is full");
@@ -31,7 +30,7 @@ public class Cart {
 ////
     public void displayCart() {
         System.out.println("In cart: ");
-        for (Media media : cart) {
+        for (Media media : itemsOrdered) {
             media.getInfor();
         }
     }
@@ -40,9 +39,18 @@ public class Cart {
 
 
     public void removeMedia(int id) {
-        for (int i = 0; i < cart.size(); i++) {
-            if (cart.get(i).getId() == id) {
-                cart.remove(i);
+        for (int i = 0; i < itemsOrdered.size(); i++) {
+            if (itemsOrdered.get(i).getId() == id) {
+                itemsOrdered.remove(i);
+                System.out.println("Remove successfully");
+            }
+        }
+    }
+
+    public void removeMedium (Media media) {
+        for (int i = 0; i < itemsOrdered.size(); i++) {
+            if (itemsOrdered.get(i).equals(media)) {
+                itemsOrdered.remove(i);
                 System.out.println("Remove successfully");
             }
         }
@@ -53,7 +61,7 @@ public class Cart {
 ////
     public void totalCost() {
         double cost = 0;
-        for (Media media : cart) {
+        for (Media media : itemsOrdered) {
             cost += media.getCost();
         }
         System.out.println("Total cost: " + cost);
@@ -63,12 +71,16 @@ public class Cart {
         double randomDouble = Math.random();
         randomDouble = randomDouble * 100 + 1; //Range [1,100]
         int randomInt = (int) randomDouble;
-        for (Media media : cart) {
+        for (Media media : itemsOrdered) {
             if (media.getId() == randomInt) {
                 System.out.println("Congratulations! You have a special gift!!");
                 break;
             }
         }
+    }
+
+    public ObservableList<Media> getItemsInCart() {
+        return itemsOrdered;
     }
 
 
@@ -103,19 +115,19 @@ public class Cart {
 
     //Problem 3 - COMPARABLE
     public void sortInCartByTitle() {
-        Collections.sort(cart);
+        Collections.sort(itemsOrdered);
     }
 
     ////
 //    //Ascending by title: PROBLEM 4 - COMPARATOR
     public void sortInCartByTittle() {
-        cart.sort((m1, m2) -> String.valueOf(m1.getTitle()).compareTo(m2.getTitle()));
+        itemsOrdered.sort((m1, m2) -> String.valueOf(m1.getTitle()).compareTo(m2.getTitle()));
 
     }
 
     ////
     public void searchInCartById(int id) {
-        for (Media media : cart) {
+        for (Media media : itemsOrdered) {
             if (id == media.getId()) {
                 System.out.println("Searching successfully!!");
                 break;
@@ -127,7 +139,7 @@ public class Cart {
 
     ////
     public void searchInCartByTitle(String title) {
-        for (Media media : cart) {
+        for (Media media : itemsOrdered) {
             if (title.compareTo(media.getTitle()) == 0) {
                 System.out.println("Searching successfully!!");
                 break;
