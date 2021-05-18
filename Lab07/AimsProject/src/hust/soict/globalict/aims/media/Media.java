@@ -1,0 +1,40 @@
+package hust.soict.globalict.aims.media;
+
+public abstract class Media {
+    private int id;
+    private String title;
+    private String category;
+    private double cost;
+
+    public Media (int id, String title, String category, double cost) {
+        this.id = id;
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+    }
+
+    public int getId () {
+        return this.id;
+    }
+
+    public String getTitle () {
+        return this.title;
+    }
+
+    public String getCategory () {
+        return this.category;
+    }
+
+    public double getCost () {
+        return this.cost;
+    }
+
+    public void getInfor () {
+        System.out.print("ID: " + getId());
+        System.out.print(" - Title: " + getTitle());
+        System.out.print(" - Category: " + getCategory());
+        System.out.println(" - Cost: " + getCost());
+    }
+}
+
+
