@@ -48,7 +48,7 @@ public class Cart {
         }
     }
 
-    public void removeMedium (Media media) {
+    public void removeMedium(Media media) {
         for (int i = 0; i < itemsOrdered.size(); i++) {
             if (itemsOrdered.get(i).equals(media)) {
                 itemsOrdered.remove(i);
@@ -60,24 +60,35 @@ public class Cart {
     ////
 ////    //Remove by other elements is kind of similar.
 ////
-    public void totalCost() {
+//    public void totalCost() {
+//        double cost = 0;
+//        for (Media media : itemsOrdered) {
+//            cost += media.getCost();
+//        }
+//        System.out.println("Total cost: " + cost);
+//    }
+
+    public double totalCost() {
         double cost = 0;
         for (Media media : itemsOrdered) {
             cost += media.getCost();
         }
-        System.out.println("Total cost: " + cost);
+        return cost;
     }
 
-    public void getALuckyItem() {
-        double randomDouble = Math.random();
-        randomDouble = randomDouble * 100 + 1; //Range [1,100]
-        int randomInt = (int) randomDouble;
-        for (Media media : itemsOrdered) {
-            if (media.getId() == randomInt) {
-                System.out.println("Congratulations! You have a special gift!!");
-                break;
+    public void getALuckyItem() throws LuckyException {
+        double threshold = Math.random();
+        threshold = threshold * 100 + 1; //Range [1,100]
+        int randomInt = (int) threshold;
+        if (totalCost() >= threshold) {
+            for (Media media : itemsOrdered) {
+                if (media.getId() == randomInt) {
+                    System.out.println("Congratulations! You have a special gift!!");
+                    break;
+                }
             }
-        }
+        } else
+            throw new LuckyException("Cannot get lucky items");
     }
 
     public ObservableList<Media> getItemsInCart() {

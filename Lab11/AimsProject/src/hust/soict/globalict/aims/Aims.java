@@ -1,11 +1,17 @@
 package hust.soict.globalict.aims;
 
 import hust.soict.globalict.aims.cart.Cart;
+import hust.soict.globalict.aims.cart.LuckyException;
 import hust.soict.globalict.aims.disc.DigitalVideoDisc;
+import hust.soict.globalict.aims.exception.PlayerException;
 import hust.soict.globalict.aims.media.Book;
+import hust.soict.globalict.aims.media.CompactDisc;
 import hust.soict.globalict.aims.media.Disc;
+import hust.soict.globalict.aims.media.Track;
 
 import javax.naming.LimitExceededException;
+import java.util.Scanner;
+import java.util.Vector;
 
 
 public class Aims {
@@ -44,7 +50,7 @@ public class Aims {
         System.out.println("-------------------------------------");
     }
 
-    public static void main(String[] args) throws LimitExceededException {
+    public static void main(String[] args) throws LimitExceededException, PlayerException, LuckyException {
         Cart anOrder = new Cart();
         DigitalVideoDisc dvd1 = new DigitalVideoDisc(1, "Soul", "Animation", 3.6, 120, "Tom");
         DigitalVideoDisc dvd2 = new DigitalVideoDisc(2, "Lion King", "Animation", 3.6, 120, "Tom");
@@ -75,123 +81,122 @@ public class Aims {
         anOrder.sortInCartByTittle();
         anOrder.displayCart();
 
-//        MemoryDaemon md = new MemoryDaemon ();
-//        showMenu();
-//        int choice;
-//        Store store = new Store ();
-//        Disc d = new Disc (1, "Say you won't let go", "Pop", 2.5, 240, "James");
-//        DigitalVideoDisc dvd = new DigitalVideoDisc(2, "Soul", "Animation", 3.6, 120, "Tom");
-//        Track track1 = new Track("Track 1", 20);
-//        Track track2 = new Track("Track 2", 15);
-//        Track track3 = new Track("Track 3", 30);
-//        Vector<Track> track = new Vector<>();
-//        track.add(track1);
-//        track.add(track2);
-//        track.add(track3);
-//        CompactDisc c = new CompactDisc(3, "Night changes", "Pop", 2.8, "One Direction", track);
-//        store.addMedia(d);
-//        store.addMedia(dvd);
-//        store.addMedia(c);
-//        Cart anOrder = new Cart();
-//        Scanner sc = new Scanner(System.in);
-//        do {
-//            System.out.println("Enter your choice: ");
-//            choice = Integer.parseInt(sc.nextLine());
-//            switch (choice) {
-//                case 1:
-//                    storeMenu();
-//                    do {
-//                        System.out.println("Enter you choice in store menu: ");
-//                        choice = Integer.parseInt(sc.nextLine());
-//                        switch (choice) {
-//                            case 1:
-//                                break;
-//                            case 2:
-//                                Disc disc = new Disc (1, "Say you won't let go", "Pop", 2.5, 240, "James");
-//                                anOrder.addMedia(disc);
-//                                DigitalVideoDisc dvd1= new DigitalVideoDisc(2, "Soul", "Animation", 3.6, 120, "Tom");
-//                                anOrder.addMedia(dvd1);
-//                                dvd1.play(); // Play DVD
-//                                Track track10 = new Track("Track 1", 20);
-//                                Track track20 = new Track("Track 2", 15);
-//                                Track track30 = new Track("Track 3", 30);
-//                                Vector<Track> tracks = new Vector<>();
-//                                tracks.add(track1);
-//                                tracks.add(track2);
-//                                tracks.add(track3);
-//                                Track track4 = new Track("Track 2", 15);
-//                                tracks.add(track4);
-//                                CompactDisc cd = new CompactDisc(3, "Night changes", "Pop", 2.8, "One Direction", tracks);
-//                                anOrder.addMedia(cd);
-//                                cd.play(); // Play Compact Disc
-//                                break;
-//                            case 3:
-//                                do {
-//                                    cartMenu();
-//                                    System.out.println("Enter your choice in cart menu: ");
-//                                    choice = Integer.parseInt(sc.nextLine());
-//                                    String Schoice;
-//                                    switch (choice) {
-//                                        case 1:
-//                                            System.out.println("Which type of filter do you want? ");
-//                                            Schoice = sc.nextLine();
-//                                            if (Schoice.compareTo("ID") == 0) {
-//                                                System.out.println("Enter the ID: ");
-//                                                int id = Integer.parseInt(sc.nextLine());
-//                                                anOrder.searchInCartById(id);
-//                                            }
-//                                            if (Schoice.compareTo("Title") == 0) {
-//                                                System.out.println("Enter the title: ");
-//                                                String title = sc.nextLine();
-//                                                anOrder.searchInCartByTitle(title);
-//                                            }
-//                                            break;
-//                                        case 2:
-//                                            System.out.println("Which type of Sort do you want? ");
-//                                            Schoice = sc.nextLine();
-//                                            if (Schoice.compareTo("Title") == 0) {
-//                                                anOrder.sortInCartByTittle();
-//                                                System.out.println("After sorting by Title: ");
-//                                                anOrder.displayCart();
-//                                            }
-//                                            if (Schoice.compareTo("Cost") == 0)
-//                                                anOrder.sortInCartByCost();
-//                                            System.out.println("After sorting by Cost: ");
-//                                            anOrder.displayCart();
-//                                            break;
-//                                        case 3:
-//                                            System.out.println("Enter the ID of the object you want to move?");
-//                                            int id = Integer.parseInt(sc.nextLine());
-//                                            anOrder.removeMedia(id);
-//                                            break;
-//                                        case 4:
-//                                            System.out.println("Waiting ....");
-//                                            anOrder.getALuckyItem();
-//                                            break;
-//                                        case 5:
-//                                            System.out.println("Your total cost: ");
-//                                            anOrder.totalCost();
-//                                            break;
-//                                        case 0:
-//                                            break;
-//                                    }
-//                                } while (choice >0 && choice <= 5);
-//                                break;
-//                            case 0:
-//                                break;
-//                        }
-//                    } while (choice >0 && choice <= 4);
-//                    break;
-//                case 2:
-//                    break;
-//                case 3:
-//                    break;
-//                case 0:
-//                    break;
-//            }
-//        }
-//        while (choice >0 && choice <= 4);
-//        md.run();
+        MemoryDaemon md = new MemoryDaemon ();
+        showMenu();
+        int choice;
+        Store store = new Store ();
+        Disc d = new Disc (1, "Say you won't let go", "Pop", 2.5, 240, "James");
+        DigitalVideoDisc dvd = new DigitalVideoDisc(2, "Soul", "Animation", 3.6, 120, "Tom");
+        Track track1 = new Track("Track 1", 20);
+        Track track2 = new Track("Track 2", 15);
+        Track track3 = new Track("Track 3", 30);
+        Vector<Track> track = new Vector<>();
+        track.add(track1);
+        track.add(track2);
+        track.add(track3);
+        CompactDisc c = new CompactDisc(3, "Night changes", "Pop", 2.8, "One Direction", track);
+        store.addMedia(d);
+        store.addMedia(dvd);
+        store.addMedia(c);
+        Scanner sc = new Scanner(System.in);
+        do {
+            System.out.println("Enter your choice: ");
+            choice = Integer.parseInt(sc.nextLine());
+            switch (choice) {
+                case 1:
+                    storeMenu();
+                    do {
+                        System.out.println("Enter you choice in store menu: ");
+                        choice = Integer.parseInt(sc.nextLine());
+                        switch (choice) {
+                            case 1:
+                                break;
+                            case 2:
+                                Disc disc = new Disc (1, "Say you won't let go", "Pop", 2.5, 240, "James");
+                                anOrder.addMedia(disc);
+                                dvd1 = new DigitalVideoDisc(2, "Soul", "Animation", 3.6, 120, "Tom");
+                                anOrder.addMedia(dvd1);
+                                dvd1.play(); // Play DVD
+                                Track track10 = new Track("Track 1", 20);
+                                Track track20 = new Track("Track 2", 15);
+                                Track track30 = new Track("Track 3", 30);
+                                Vector<Track> tracks = new Vector<>();
+                                tracks.add(track1);
+                                tracks.add(track2);
+                                tracks.add(track3);
+                                Track track4 = new Track("Track 2", 15);
+                                tracks.add(track4);
+                                CompactDisc cd = new CompactDisc(3, "Night changes", "Pop", 2.8, "One Direction", tracks);
+                                anOrder.addMedia(cd);
+                                cd.play(); // Play Compact Disc
+                                break;
+                            case 3:
+                                do {
+                                    cartMenu();
+                                    System.out.println("Enter your choice in cart menu: ");
+                                    choice = Integer.parseInt(sc.nextLine());
+                                    String Schoice;
+                                    switch (choice) {
+                                        case 1:
+                                            System.out.println("Which type of filter do you want? ");
+                                            Schoice = sc.nextLine();
+                                            if (Schoice.compareTo("ID") == 0) {
+                                                System.out.println("Enter the ID: ");
+                                                int id = Integer.parseInt(sc.nextLine());
+                                                anOrder.searchInCartById(id);
+                                            }
+                                            if (Schoice.compareTo("Title") == 0) {
+                                                System.out.println("Enter the title: ");
+                                                String title = sc.nextLine();
+                                                anOrder.searchInCartByTitle(title);
+                                            }
+                                            break;
+                                        case 2:
+                                            System.out.println("Which type of Sort do you want? ");
+                                            Schoice = sc.nextLine();
+                                            if (Schoice.compareTo("Title") == 0) {
+                                                anOrder.sortInCartByTittle();
+                                                System.out.println("After sorting by Title: ");
+                                                anOrder.displayCart();
+                                            }
+                                            if (Schoice.compareTo("Cost") == 0)
+                                                anOrder.sortInCartByTittle();
+                                            System.out.println("After sorting by Cost: ");
+                                            anOrder.displayCart();
+                                            break;
+                                        case 3:
+                                            System.out.println("Enter the ID of the object you want to move?");
+                                            int id = Integer.parseInt(sc.nextLine());
+                                            anOrder.removeMedia(id);
+                                            break;
+                                        case 4:
+                                            System.out.println("Waiting ....");
+                                            anOrder.getALuckyItem();
+                                            break;
+                                        case 5:
+                                            System.out.println("Your total cost: ");
+                                            System.out.println(anOrder.totalCost());
+                                            break;
+                                        case 0:
+                                            break;
+                                    }
+                                } while (choice >0 && choice <= 5);
+                                break;
+                            case 0:
+                                break;
+                        }
+                    } while (choice >0 && choice <= 4);
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 0:
+                    break;
+            }
+        }
+        while (choice >0 && choice <= 4);
+        md.run();
         
 
 //        Store inStore = new Store();
