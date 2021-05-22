@@ -1,5 +1,7 @@
 package hust.soict.globalict.aims.media;
 
+import java.util.Objects;
+
 public class Disc extends Media{
     private int length;
     private String director;
@@ -19,5 +21,25 @@ public class Disc extends Media{
 
     public int getLength() {
         return length;
+    }
+
+    @Override
+    public boolean equals(Object o) throws NullPointerException, ClassCastException{
+        if (this != null) {
+            if (o instanceof Disc) {
+                Disc disc = (Disc) o;
+                if (this.getTitle() == disc.getTitle() && this.getCost() == disc.getCost())
+                    return true;
+                else
+                    return false;
+            } else
+                throw new ClassCastException("The media is not a CD");
+        } else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(length, director);
     }
 }

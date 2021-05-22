@@ -1,9 +1,6 @@
 package hust.soict.globalict.aims.media;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Book extends Media{
     private List<String> authors = new ArrayList<>();
@@ -60,5 +57,25 @@ public class Book extends Media{
             ret.append(entry.getKey() + ": " +entry.getValue() + ",");
         ret.append("Cost = " + this.getCost());
         return ret.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this != null) {
+            if (o instanceof Book) {
+                Book book = (Book) o;
+                if (this.getTitle() == book.getTitle() && this.getCost() == book.getCost())
+                    return true;
+                else
+                    return false;
+            } else
+                throw new ClassCastException("The media is not a CD");
+        } else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(authors);
     }
 }

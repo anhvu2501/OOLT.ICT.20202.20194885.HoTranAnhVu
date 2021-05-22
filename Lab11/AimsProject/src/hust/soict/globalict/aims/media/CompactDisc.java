@@ -4,6 +4,7 @@ import hust.soict.globalict.aims.Playable;
 import hust.soict.globalict.aims.exception.PlayerException;
 
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Vector;
 
 public class CompactDisc extends Disc implements Playable {
@@ -70,5 +71,25 @@ public class CompactDisc extends Disc implements Playable {
             }
         } else
             throw new PlayerException("ERROR: CD length is non-positive!");
+    }
+
+    @Override
+    public boolean equals(Object o) throws NullPointerException, ClassCastException{
+        if (this != null) {
+            if (o instanceof CompactDisc) {
+                CompactDisc cd = (CompactDisc) o;
+                if (this.getTitle() == cd.getTitle() && this.getCost() == cd.getCost())
+                    return true;
+                else
+                    return false;
+            } else
+                throw new ClassCastException("The media is not a CD");
+        } else
+            return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(artist, tracks);
     }
 }
